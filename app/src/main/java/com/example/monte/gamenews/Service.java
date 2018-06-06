@@ -7,6 +7,8 @@ import com.example.monte.gamenews.Usuarios.GPubFavUsuario;
 import com.example.monte.gamenews.Usuarios.Login;
 import com.example.monte.gamenews.Usuarios.Usuario;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.DELETE;
 import retrofit2.http.Field;
@@ -17,11 +19,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface Notificaciones {
-
-    @GET("/players")
-    @FormUrlEncoded
-    Call<Player> playerNombre(@Field("name") String name);
+public interface Service {
 
     @POST("/login")
     @FormUrlEncoded
@@ -35,7 +33,7 @@ public interface Notificaciones {
     @PUT("/users/{id}")
     @FormUrlEncoded
     Call<Usuario> actualizarUsuario(@Header("Authorization") String token, @Field ("password")
-            String password, @Path("id") String id);
+                                    String password, @Path("id") String id);
 
     @GET("/users/{id}")
     @FormUrlEncoded
@@ -63,15 +61,15 @@ public interface Notificaciones {
 
     @GET("/news")
     @FormUrlEncoded
-    Call<Noticias> listaNoticias(@Header("Authorization") String token);
+    Call<List<Noticias>> listaNoticias(@Header("Authorization") String token);
 
     @GET("/news/type/list")
     @FormUrlEncoded
-    Call<Noticias> listaTipoNoticias(@Header("Authorization") String token);
+    Call<List<Noticias>> listaTipoNoticias(@Header("Authorization") String token);
 
     @GET("/news/type/{id}")
     @FormUrlEncoded
-    Call<Noticias> listaNoticiasCat(@Header("Authorization") String token, @Path("id") String game);
+    Call<List<Noticias>> listaNoticiasCat(@Header("Authorization") String token, @Path("id") String game);
 
     @POST("/news")
     @FormUrlEncoded
@@ -87,15 +85,15 @@ public interface Notificaciones {
 
     @GET("/players")
     @FormUrlEncoded
-    Call<Player> listaPlayers(@Header("Authorization") String token);
+    Call<List<Player>> listaPlayers(@Header("Authorization") String token);
 
     @GET("/players/type/list")
     @FormUrlEncoded
-    Call<Player> juegoDePlayers(@Header("Authorization") String token);
+    Call<List<Player>> juegoDePlayers(@Header("Authorization") String token);
 
     @GET("/players/type/{id}")
     @FormUrlEncoded
-    Call<Player> listaPlayerPorJuego(@Header("Authorization") String token, @Path("id") String id);
+    Call<List<Player>> listaPlayerPorJuego(@Header("Authorization") String token, @Path("id") String id);
 
     @POST("/players")
     @FormUrlEncoded

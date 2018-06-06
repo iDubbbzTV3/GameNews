@@ -1,4 +1,4 @@
-package com.example.monte.gamenews.DataBase;
+package com.example.monte.gamenews.DataBase.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;

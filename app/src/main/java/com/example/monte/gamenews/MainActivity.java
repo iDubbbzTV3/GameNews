@@ -2,14 +2,9 @@ package com.example.monte.gamenews;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
-import com.example.monte.gamenews.Jugadores.Player;
 import com.example.monte.gamenews.Usuarios.Login;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,7 +12,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    public Notificaciones notificaciones;
+    public Service service;
 
     private RecyclerView listview;
 
@@ -28,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
 
         listview = findViewById(R.id.listView);
 
-        notificaciones = APIUtils.getAPIService();
-        notificaciones.Login("00249716", "00249716").enqueue(new Callback<Login>() {
+        service = APIUtils.getAPIService();
+        service.Login("00249716", "00249716").enqueue(new Callback<Login>() {
             @Override
             public void onResponse(Call<Login> call, Response<Login> response) {
                 /*
                 if (response.isSuccessful()) {
-                    notificaciones.playerNombre(response.body().getToken()).enqueue(new Callback<List<Player>>() {
+                    service.playerNombre(response.body().getToken()).enqueue(new Callback<List<Player>>() {
                         @Override
                         public void onResponse(Call<List<Player>> call, Response<List<Player>> response) {
                             if (response.isSuccessful()){

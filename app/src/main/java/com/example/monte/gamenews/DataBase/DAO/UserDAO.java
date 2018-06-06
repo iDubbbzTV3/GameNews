@@ -1,17 +1,16 @@
-package com.example.monte.gamenews.DataBase;
+package com.example.monte.gamenews.DataBase.DAO;
 
-import io.reactivex.Flowable;
-
+import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
-import java.util.List;
 
+@Dao
 public interface UserDAO {
 
     @Insert
     void insert(UserDAO user);
 
-    @Query("SELECT * FROM users WHERE id=:userId")
+    @Query("SELECT * FROM user WHERE id=:id")
     UserDAO getUserById(String id);
 
     @Query("DELETE FROM user")
