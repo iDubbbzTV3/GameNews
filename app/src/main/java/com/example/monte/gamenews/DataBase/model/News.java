@@ -28,17 +28,21 @@ public class News {
     @ColumnInfo(name = "description")
     private String description;
 
+    @ColumnInfo(name = "favoritos")
+    private String favoritos;
+
     public News() {
 
     }
 
-    public News(@NonNull String id, String title, String body, String game, String coverImage, String description){
+    public News(@NonNull String id, String title, String body, String game, String coverImage, String description, String favoritos){
         this.id = id;
         this.title = title;
         this.body = body;
         this.game = game;
         this.coverImage = coverImage;
         this.description = description;
+        this.favoritos = favoritos;
     }
 
     public String getId() {
@@ -89,4 +93,11 @@ public class News {
         this.description = description;
     }
 
+    public String getFavoritos() {
+        return favoritos;
+    }
+
+    public void setFavoritos(String favoritos) {
+        this.favoritos = favoritos;
+    }
 }

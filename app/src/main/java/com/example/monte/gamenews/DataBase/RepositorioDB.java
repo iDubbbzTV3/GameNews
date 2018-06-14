@@ -10,6 +10,7 @@ import com.example.monte.gamenews.APIUtils;
 import com.example.monte.gamenews.DataBase.DAO.NewsDAO;
 import com.example.monte.gamenews.DataBase.DAO.PlayerDAO;
 import com.example.monte.gamenews.DataBase.DAO.UserDAO;
+import com.example.monte.gamenews.DataBase.model.News;
 import com.example.monte.gamenews.Jugadores.Player;
 import com.example.monte.gamenews.Noticias.Noticias;
 import com.example.monte.gamenews.Service;
@@ -444,7 +445,7 @@ public RepositorioDB(Application application){
         };
 
         try {
-            return task.execute(token).get();
+            return task.execute(token, id).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -452,6 +453,8 @@ public RepositorioDB(Application application){
         }
         return null;
     }
+
+
 
     public boolean isOnline() {
         ConnectivityManager cm =
