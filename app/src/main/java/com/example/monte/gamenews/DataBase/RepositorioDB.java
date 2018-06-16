@@ -10,7 +10,6 @@ import com.example.monte.gamenews.APIUtils;
 import com.example.monte.gamenews.DataBase.DAO.NewsDAO;
 import com.example.monte.gamenews.DataBase.DAO.PlayerDAO;
 import com.example.monte.gamenews.DataBase.DAO.UserDAO;
-import com.example.monte.gamenews.DataBase.model.News;
 import com.example.monte.gamenews.Jugadores.Player;
 import com.example.monte.gamenews.Noticias.Noticias;
 import com.example.monte.gamenews.Service;

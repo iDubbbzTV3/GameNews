@@ -1,8 +1,8 @@
 package com.example.monte.gamenews.Usuarios;
 
+import com.example.monte.gamenews.DataBase.model.NewsModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.example.monte.gamenews.Noticias.Noticias;
 
 public class GPubFavUsuario {
 
@@ -11,7 +11,7 @@ public class GPubFavUsuario {
     private String success;
     @SerializedName("add")
     @Expose
-    public Noticias add;
+    public NewsModel add;
 
     public String getSuccess() {
         return success;
@@ -21,11 +21,11 @@ public class GPubFavUsuario {
         this.success = success;
     }
 
-    public Noticias getAdd() {
+    public NewsModel getAdd() {
         return add;
     }
 
-    public void setAdd(Noticias add) {
+    public void setAdd(NewsModel add) {
         this.add = add;
     }
 

@@ -8,7 +8,7 @@ public class Usuario {
 
     @SerializedName("favoriteNews")
     @Expose
-    private List<Object> favoriteNews = null;
+    private List<String> favoriteNews = null;
     @SerializedName("_id")
     @Expose
     private String id;
@@ -28,11 +28,11 @@ public class Usuario {
     @Expose
     private Integer v;
 
-    public List<Object> getFavoriteNews() {
+    public List<String> getFavoriteNews() {
         return favoriteNews;
     }
 
-    public void setFavoriteNews(List<Object> favoriteNews) {
+    public void setFavoriteNews(List<String> favoriteNews) {
         this.favoriteNews = favoriteNews;
     }
 

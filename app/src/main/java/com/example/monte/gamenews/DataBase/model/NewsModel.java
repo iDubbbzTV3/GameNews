@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 @Entity(tableName = "news")
-public class News {
+public class NewsModel {
     @PrimaryKey
     @NonNull
 
@@ -31,11 +31,11 @@ public class News {
     @ColumnInfo(name = "favoritos")
     private String favoritos;
 
-    public News() {
+    public NewsModel() {
 
     }
 
-    public News(@NonNull String id, String title, String body, String game, String coverImage, String description, String favoritos){
+    public NewsModel(@NonNull String id, String title, String body, String game, String coverImage, String description, String favoritos){
         this.id = id;
         this.title = title;
         this.body = body;

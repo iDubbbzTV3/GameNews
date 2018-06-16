@@ -8,18 +8,27 @@ public class Noticias {
     @SerializedName("_id")
     @Expose
     private String id;
+
     @SerializedName("title")
     @Expose
     private String title;
+
     @SerializedName("body")
     @Expose
     private String body;
+
     @SerializedName("game")
     @Expose
     private String game;
+
     @SerializedName("created_date")
     @Expose
     private String createdDate;
+
+    @SerializedName("coverImage")
+    @Expose
+    private String coverImage;
+
     @SerializedName("__v")
     @Expose
     private Integer v;
@@ -64,6 +73,14 @@ public class Noticias {
         this.createdDate = createdDate;
     }
 
+    public String getCoverImage() {
+        return coverImage;
+    }
+
+    public void setCoverImage(String coverImage) {
+        this.coverImage = coverImage;
+    }
+
     public Integer getV() {
         return v;
     }
@@ -75,7 +92,7 @@ public class Noticias {
     @Override
     public String toString() {
         return new StringBuilder().append("id" + id).append("title" + title).append("body" + body).
-                append("game" + game).append("createdDate" + createdDate).append("v" + v).toString();
+                append("game" + game).append("createdDate" + createdDate).append("coverImage" + coverImage).append("v" + v).toString();
     }
 
 }

@@ -19,6 +19,7 @@ import android.view.View;
 import com.example.monte.gamenews.Tabs.InformacionTab;
 import com.example.monte.gamenews.Tabs.JugadoresTab;
 import com.example.monte.gamenews.Tabs.NoticiasTab;
+import com.example.monte.gamenews.Token.Token;
 import com.example.monte.gamenews.Usuarios.Login;
 
 import retrofit2.Call;
@@ -49,14 +50,14 @@ public class MainActivity extends AppCompatActivity {
         listview = findViewById(R.id.listView);
 
         service = APIUtils.getAPIService();
-        service.Login("00249716", "00249716").enqueue(new Callback<Login>() {
+        service.logIn("00249716", "00249716").enqueue(new Callback<Token>() {
             @Override
-            public void onResponse(Call<Login> call, Response<Login> response) {
+            public void onResponse(Call<Token> call, Response<Token> response) {
                 /*
                 if (response.isSuccessful()) {
-                    service.playerNombre(response.body().getToken()).enqueue(new Callback<List<Player>>() {
+                    service.playerNombre(response.body().getToken()).enqueue(new Callback<List<PlayerModel>>() {
                         @Override
-                        public void onResponse(Call<List<Player>> call, Response<List<Player>> response) {
+                        public void onResponse(Call<List<PlayerModel>> call, Response<List<PlayerModel>> response) {
                             if (response.isSuccessful()){
                                 listview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                                 listview.setAdapter(new PlayersAdapter(response.body()));
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onFailure(Call<List<Player>> call, Throwable t) {
+                        public void onFailure(Call<List<PlayerModel>> call, Throwable t) {
 
                         }
                     });
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Login> call, Throwable t) {
+            public void onFailure(Call<Token> call, Throwable t) {
 
             }
         });

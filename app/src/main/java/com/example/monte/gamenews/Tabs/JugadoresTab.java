@@ -11,9 +11,10 @@ import android.view.ViewGroup;
 
 import com.example.monte.gamenews.APIUtils;
 import com.example.monte.gamenews.Jugadores.Player;
-import com.example.monte.gamenews.PlayersAdapter;
+import com.example.monte.gamenews.Jugadores.PlayersAdapter;
 import com.example.monte.gamenews.R;
 import com.example.monte.gamenews.Service;
+import com.example.monte.gamenews.Token.Token;
 import com.example.monte.gamenews.Usuarios.Login;
 
 import java.util.List;
@@ -34,9 +35,9 @@ public class JugadoresTab extends Fragment {
         listview = getView().findViewById(R.id.recycler_jugadores);
 
         service = APIUtils.getAPIService();
-        service.Login("00249716", "00249716").enqueue(new Callback<Login>() {
+        service.logIn("00249716", "00249716").enqueue(new Callback<Token>() {
             @Override
-            public void onResponse(Call<Login> call, Response<Login> response) {
+            public void onResponse(Call<Token> call, Response<Token> response) {
 
                 if (response.isSuccessful()) {
                     service.listaPlayerPorJuego(response.body().getToken(), response.body().toString()).enqueue(new Callback<List<Player>>() {
@@ -59,7 +60,7 @@ public class JugadoresTab extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<Login> call, Throwable t) {
+            public void onFailure(Call<Token> call, Throwable t) {
 
             }
         });

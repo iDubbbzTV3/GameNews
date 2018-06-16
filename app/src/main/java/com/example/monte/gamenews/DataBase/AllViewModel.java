@@ -12,10 +12,10 @@ import com.example.monte.gamenews.Usuarios.Usuario;
 
 import java.util.List;
 
-public class ViewModel extends AndroidViewModel {
+public class AllViewModel extends AndroidViewModel {
     private final RepositorioDB repositorioDB;
 
-    public ViewModel(@NonNull Application application){
+    public AllViewModel(@NonNull Application application){
         super(application);
         repositorioDB = new RepositorioDB(application);
     }

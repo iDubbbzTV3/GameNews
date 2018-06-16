@@ -9,12 +9,12 @@ import com.example.monte.gamenews.DataBase.DAO.FavoritosDAO;
 import com.example.monte.gamenews.DataBase.DAO.NewsDAO;
 import com.example.monte.gamenews.DataBase.DAO.PlayerDAO;
 import com.example.monte.gamenews.DataBase.DAO.UserDAO;
-import com.example.monte.gamenews.DataBase.model.Favoritos;
-import com.example.monte.gamenews.DataBase.model.News;
-import com.example.monte.gamenews.DataBase.model.Player;
-import com.example.monte.gamenews.DataBase.model.User;
+import com.example.monte.gamenews.DataBase.model.FavoritosModel;
+import com.example.monte.gamenews.DataBase.model.NewsModel;
+import com.example.monte.gamenews.DataBase.model.PlayerModel;
+import com.example.monte.gamenews.DataBase.model.UserModel;
 
-@Database(entities = {News.class, User.class,Player.class, Favoritos.class}, version = 1)
+@Database(entities = {NewsModel.class, UserModel.class,PlayerModel.class, FavoritosModel.class}, version = 1)
 public abstract class DataBase extends RoomDatabase{
 
     public abstract UserDAO userDAO();

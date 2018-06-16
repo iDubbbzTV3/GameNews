@@ -22,7 +22,7 @@ public class TabManager extends AppCompatActivity{
         viewPager = (ViewPager) findViewById(R.id.viewpager_id);
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        adapter.AddFragment (new InformacionTab(), "Informacion");
+        adapter.AddFragment (new InformacionTab(), "Imagenes");
         adapter.AddFragment (new JugadoresTab(), "Jugadores");
         adapter.AddFragment (new NoticiasTab(), "Noticias");
 

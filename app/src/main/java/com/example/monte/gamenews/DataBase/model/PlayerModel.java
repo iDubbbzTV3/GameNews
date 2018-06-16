@@ -6,7 +6,7 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 @Entity(tableName = "player")
-public class Player {
+public class PlayerModel {
     @ColumnInfo(name = "avatar")
     private String avatar;
     @PrimaryKey
@@ -22,7 +22,7 @@ public class Player {
     @ColumnInfo(name="game")
     private String game;
 
-    public Player(String avatar, String id, String name, String biografia, String game) {
+    public PlayerModel(String avatar, String id, String name, String biografia, String game) {
         this.avatar = avatar;
         this.id = id;
         this.name = name;

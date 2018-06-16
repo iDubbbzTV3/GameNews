@@ -1,29 +1,27 @@
-package com.example.monte.gamenews;
+package com.example.monte.gamenews.Noticias;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.example.monte.gamenews.Noticias.Noticias;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-
-import com.example.monte.gamenews.DataBase.model.News;
-import com.example.monte.gamenews.Noticias.Noticias;
+import com.example.monte.gamenews.R;
 
 import java.util.List;
 
-public class MyNewsRecyclerViewAdapter extends RecyclerView.Adapter<MyNewsRecyclerViewAdapter.ViewHolder> {
+public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.ViewHolder> {
 
-    private final List<News> list;
-    private final OnListFragmentInteractionListener mListener;
+    private final List<Noticias> list;
+    private final NoticiasFrag.OnListFragmentInteractionListener mListener;
     private Context context;
 
-    public MyNewsRecyclerViewAdapter(List<News> items, OnListFragmentInteractionListener listener, Context context) {
+    public NoticiasAdapter(List<Noticias> items, NoticiasFrag.OnListFragmentInteractionListener listener, Context context) {
         list = items;
         mListener = listener;
         this.context = context;
@@ -41,7 +39,7 @@ public class MyNewsRecyclerViewAdapter extends RecyclerView.Adapter<MyNewsRecycl
     public void onBindViewHolder(final ViewHolder holder, int position) {
         if(list!=null) {
             holder.title.setText(list.get(position).getTitle());
-            holder.content.setText(list.get(position).getDescription());
+            holder.content.setText(list.get(position).getBody());
             Glide.with(context).load(list.get(position).getCoverImage()).apply(RequestOptions.centerCropTransform()).into(holder.image);
         }
         // holder.image.setImageURI(Uri.parse(list.get(position).getCoverImage()));
