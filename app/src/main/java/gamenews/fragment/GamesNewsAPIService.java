@@ -28,64 +28,65 @@ public interface GamesNewsAPIService {
                           @Field("password") String password);
 
     @GET("/users")
-    Call<List<UserPOJO>> conseguirUsuarios(@Header("Authorization") String authHeader);
+    Call<List<UserPOJO>> getAllUsers(@Header("Authorization") String authHeader);
 
     @POST("/users")
     @FormUrlEncoded
-    Call<UserPOJO> agregarUsuario(@Header("Authorization") String authHeader, @Field("user") String user,
+    Call<UserPOJO> addUser(@Header("Authorization") String authHeader, @Field("user") String user,
                            @Field("avatar") String avatar, @Field("password") String password);
 
     @PUT("/users/{id}")
     @FormUrlEncoded
-    Call<UserPOJO> editarUsuario(@Header("Authorization") String authHeader, @Path("id") String id, @Field("password") String password);
+    Call<UserPOJO> editUser(@Header("Authorization") String authHeader, @Path("id") String id, @Field("password") String password);
 
     @GET("/users/{id}")
     @FormUrlEncoded
-    Call<UserWithFavsPOJO> conseguirUsuario(@Header("Authorization") String authHeader, @Path("id") String id);
+    Call<UserWithFavsPOJO> getUserByID(@Header("Authorization") String authHeader, @Path("id") String id);
 
     @DELETE("/users/{id}")
     @FormUrlEncoded
-    Call<UserPOJO> borrarUsuario(@Header("Authorization") String authHeader, @Path("id") String id);
+    Call<UserPOJO> deleteUserByID(@Header("Authorization") String authHeader, @Path("id") String id);
 
     @GET("users/detail")
-    Call<UserPOJO> conseguirdetallesUsuario(@Header("Authorization") String authHeader);
+    Call<UserPOJO> getUserDetail(@Header("Authorization") String authHeader);
 
     @POST("/users/{id}/fav")
     @FormUrlEncoded
-    Call<NewNewPOJO> agregarFavoritosUsuario(@Header("Authorization") String authHeader, @Path("id") String id, @Field("new") String n_new);
+    Call<NewNewPOJO> addUserFav(@Header("Authorization") String authHeader, @Path("id") String id, @Field("new") String n_new);
 
 
     @FormUrlEncoded
     @HTTP(method = "DELETE", path = "/users/{id}/fav", hasBody = true)
-    Call<MessageResultPOJO> borrarFavoritosUsuario(@Header("Authorization") String authHeader, @Path("id") String id, @Field("new") String n_new);
+    Call<MessageResultPOJO> deleteUserFav(@Header("Authorization") String authHeader, @Path("id") String id, @Field("new") String n_new);
 
     @GET("/news")
-    Call<List<NewPOJO>> conseguirNoticias(@Header("Authorization") String authHeader);
+    Call<List<NewPOJO>> getAllNews(@Header("Authorization") String authHeader);
 
     @GET("/news/type/list")
-    Call<List<String>> ConseguirNoticias(@Header("Authorization") String authHeader);
+    Call<List<String>> getNewsCategory(@Header("Authorization") String authHeader);
 
     @GET("/news/type/{category}")
-    Call<List<NewPOJO>> conseguirNoticiasCat(@Header("Authorization") String authHeader, @Path("category") String category);
+    Call<List<NewPOJO>> getNewsByCategory(@Header("Authorization") String authHeader, @Path("category") String category);
 
     @POST("/news")
     @FormUrlEncoded
-    Call<NewPOJO> agregarNoticia(@Header("Authorization") String authHeader, @Path("title") String title, @Path("description")
+    Call<NewPOJO> addNew(@Header("Authorization") String authHeader, @Path("title") String title, @Path("description")
             String description, @Path("coverImage") String coverImage, @Path("body") String body, @Path("game") String category);
 
     @GET("/news/{id}")
-    Call<NewPOJO> conseguirNoticiaporId(@Header("Authorization") String authHeader, @Path("id") String id);
+    Call<NewPOJO> getNewByID(@Header("Authorization") String authHeader, @Path("id") String id);
 
     @GET("/players")
-    Call<List<PlayerPOJO>> conseguirTodosJugadores(@Header("Authorization") String authHeader);
+    Call<List<PlayerPOJO>> getAllPlayers(@Header("Authorization") String authHeader);
 
     @GET("/players/type/list")
-    Call<List<String>> conseguirJugadoresCat(@Header("Authorization") String authHeader);
+    Call<List<String>> getPlayersCategory(@Header("Authorization") String authHeader);
 
     @GET("/players/type/{game}")
-    Call<List<PlayerPOJO>> coseguirJugadoresporJuego(@Header("Authorization") String authHeader, @Path("game") String category);
+    Call<List<PlayerPOJO>> getPlayersByCategory(@Header("Authorization") String authHeader, @Path("game") String category);
 
     @GET("/players/{id}")
-    Call<PlayerPOJO> conseguirJugadorporId(@Header("Authorization") String authHeader, @Path("id") String id);
+    Call<PlayerPOJO> getPlayerByID(@Header("Authorization") String authHeader, @Path("id") String id);
+
 }
 
