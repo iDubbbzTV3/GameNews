@@ -34,7 +34,7 @@ public interface GamesNewsAPIService {
     @FormUrlEncoded
     Call<UserPOJO> addUser(@Header("Authorization") String authHeader, @Field("user") String user,
                            @Field("avatar") String avatar, @Field("password") String password);
-
+//Hi
     @PUT("/users/{id}")
     @FormUrlEncoded
     Call<UserPOJO> editUser(@Header("Authorization") String authHeader, @Path("id") String id, @Field("password") String password);
