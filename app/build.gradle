@@ -46,5 +46,8 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
 
+    implementation 'com.mikhaellopez:circularimageview:3.0.2'
+
+
 
 }
